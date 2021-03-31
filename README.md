@@ -3,17 +3,24 @@ meteor-accounts-vk
 
 Login service for VKontakte accounts (https://vk.com).
 
+INFO
+-----
+
+This is `FORK` of package with fixing issues to using VK API above 5 because `mrt` team doesn't support and response any
+issues
+
 Usage
 -----
 
 1. Add the package to your project using meteorite:
+
 ```sh
 $ meteor add mrt:accounts-vk
 ```
 
 2. Configure vkontakte login service. You can do mannually or using GUI.
 
-    **Manually**: Just add next code to your config file.
+   **Manually**: Just add next code to your config file.
     ```js
         if (Meteor.isServer) {
             ServiceConfiguration.configurations.remove({
@@ -30,7 +37,7 @@ $ meteor add mrt:accounts-vk
         }
     ```
 
-    **GUI**:
+   **GUI**:
     * Add `accounts-ui` package to your project:
 
         ```sh
@@ -39,19 +46,21 @@ $ meteor add mrt:accounts-vk
     * Set `{{> loginButtons}}` into your template
     * Go to your browser, open page with `{{> loginButtons}}`
     * Click on "configure Vk login" button
-    * Fill "App Id", "App Secret", "[Scope](https://vk.com/dev/permissions)" fields in popup window following by instructions
+    * Fill "App Id", "App Secret", "[Scope](https://vk.com/dev/permissions)" fields in popup window following by
+      instructions
 
 3. Use `Meteor.loginWithVk(options, callback)` for user authentication (you can omit `options` argument).
 
 4. For customization of new user creation you must set 'createUser' event handler:
+
 ```js
     if (Meteor.isServer) {
-        Accounts.onCreateUser(function(options, user) {
-            user.custom_field = "custom value";
-            // ...
-            return user;
-        });
-    }
+  Accounts.onCreateUser(function (options, user) {
+    user.custom_field = "custom value";
+    // ...
+    return user;
+  });
+}
 ```
 
 ***Enjoy!***
@@ -64,6 +73,7 @@ Contributors
 ------------
 
 Thanks to these people for their contributions! I appriciate it a lot!
+
 * @mike1pol (Mikhail Poluboyarinov)
 * @Neftedollar
 * @illfantasy
