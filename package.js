@@ -25,7 +25,4 @@ Package.on_use(function(api) {
     api.add_files('lib/vk_server.js', 'server');
 
     api.export('VK');
-
-    api.add_files(['lib/vk_configure.html', 'lib/vk_configure.js', 'lib/vk_styles.css'], 'client');
-
 });
